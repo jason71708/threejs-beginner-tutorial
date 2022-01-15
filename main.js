@@ -1,5 +1,10 @@
 import './style.css'
 import * as THREE from 'three'
+import backgroundImage from './images/background.jpeg'
+import avatarImage from './images/avatar.png'
+import moonImage from './images/moon.jpeg'
+import normalImage from './images/normal.jpeg'
+
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 
 /*
@@ -70,21 +75,21 @@ Array(200).fill().forEach(addStar) // just for repeat add star function
 /*
   Add Background with static assets
 */
-const spaceTexture = new THREE.TextureLoader().load('./assets/background.jpeg')
+const spaceTexture = new THREE.TextureLoader().load(backgroundImage)
 scene.background = spaceTexture
 
 /*
   Add texture on object
 */
-const avatarTexture = new THREE.TextureLoader().load('./assets/avatar.png')
+const avatarTexture = new THREE.TextureLoader().load(avatarImage)
 const avatar = new THREE.Mesh(
   new THREE.BoxGeometry(10, 20, 20),
   new THREE.MeshBasicMaterial({ map: avatarTexture })
 )
 avatar.position.set(-20, 0, -10)
 
-const moonTexture = new THREE.TextureLoader().load('./assets/moon.jpeg')
-const normalTexture = new THREE.TextureLoader().load('./assets/normal.jpeg')
+const moonTexture = new THREE.TextureLoader().load(moonImage)
+const normalTexture = new THREE.TextureLoader().load(normalImage)
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3, 32, 32),
   new THREE.MeshStandardMaterial({
